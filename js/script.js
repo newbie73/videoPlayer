@@ -5,4 +5,14 @@ const stop_btn = document.getElementsByClassName("stop")
 const timeline = document.getElementsByClassName("timeline")
 const sound_btn = document.getElementsByClassName("sound")
 const settings_btn = document.getElementsByClassName("settings")
-const ecpand_btn = document.getElementsByClassName("expand")
+const expand_btn = document.getElementsByClassName("expand")
+
+function playVideo(){}
+function pauseVideo(){}
+function stopVideo(){}
+function getVideoTime(){}
+function soundOn(){}
+function soundOff(){}
+function saveVideo(){}
+function expandOn(){}
+function expandOff(){}
