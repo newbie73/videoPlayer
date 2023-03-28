@@ -10,15 +10,21 @@ const expand_btn = document.getElementsByClassName("expand")
 const simple_video = document.getElementById("simp-video")
 
 const switches = {
-    play_pause_switch: 0,
+    play_pause_switch: 1,
     sound_swicth: 0.5,
 }
 
 function playVideo(video_elem){
     video_elem.play()
+    play_pause_btn[0].style.backgroundImage = "url('../icons/pause.svg')"
+    opacityAnim(play_pause_btn[0])
+    switches.play_pause_switch = 0
 }
 function pauseVideo(video_elem){
     video_elem.pause()
+    play_pause_btn[0].style.backgroundImage = "url('../icons/play.svg')"
+    play_pause_btn[0].style.opacity = 1
+    switches.play_pause_switch = 1
 }
 function stopVideo(video_elem){
     video_elem.pause()
@@ -33,11 +39,28 @@ function soundOff(video_elem,sound){
     sound.style.backgroundImage = "url('../icons/not_sound.svg')"
     video_elem.volume = 0
 }
+function opacityAnim(elem){
+    let opac = 8
+    let inter = setInterval(() => {
+        elem.style.opacity = `0.${opac}`
+        --opac
+        
+        if(opac === -1){
+            clearInterval(inter)
+        }
+    },50)
+}
 function saveVideo(){}
 function expandOn(){}
 function expandOff(){}
 
-play_pause_btn[0].addEventListener("click", () => {})
+simple_video.addEventListener("click", () => {
+    if(switches.play_pause_switch === 1){
+        playVideo(simple_video)
+    }else{
+        pauseVideo(simple_video)
+    }
+})
 play_btn[0].addEventListener("click", () => {
     playVideo(simple_video)
 })
