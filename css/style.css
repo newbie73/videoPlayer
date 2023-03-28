@@ -7,8 +7,9 @@ body{
     margin: 3% 30%;
 }
 
-#simp-player{
+#simp-video{
     border-radius: 20px 20px 20px 20px;
+    width: 480px;
 }
 
 .play-pause{
