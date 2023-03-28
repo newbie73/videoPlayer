@@ -10,8 +10,8 @@ const expand_btn = document.getElementsByClassName("expand")
 const simple_video = document.getElementById("simp-video")
 
 const switches = {
-    play_pause_switch: 0.5,
-    sound_swicth: 0
+    play_pause_switch: 0,
+    sound_swicth: 0.5,
 }
 
 function playVideo(video_elem){
