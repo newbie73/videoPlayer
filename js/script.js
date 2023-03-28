@@ -7,7 +7,7 @@ const sound_btn = document.getElementsByClassName("sound")
 const settings_btn = document.getElementsByClassName("settings")
 const expand_btn = document.getElementsByClassName("expand")
 
-const video = document.getElementById("simp-player")
+const simple_video = document.getElementById("simp-player")
 
 function playVideo(){}
 function pauseVideo(){}
