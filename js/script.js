@@ -9,6 +9,11 @@ const expand_btn = document.getElementsByClassName("expand")
 
 const simple_video = document.getElementById("simp-video")
 
+const switches = {
+    play_pause_switch: 0.5,
+    sound_swicth: 0
+}
+
 function playVideo(video_elem){
     video_elem.play()
 }
@@ -20,8 +25,14 @@ function stopVideo(video_elem){
     video_elem.currentTime = 0
 }
 function getVideoTime(){}
-function soundOn(){}
-function soundOff(){}
+function soundOn(video_elem,sound){
+    sound.style.backgroundImage = "url('../icons/sound.svg')"
+    video_elem.volume = 1
+}
+function soundOff(video_elem,sound){
+    sound.style.backgroundImage = "url('../icons/not_sound.svg')"
+    video_elem.volume = 0
+}
 function saveVideo(){}
 function expandOn(){}
 function expandOff(){}
@@ -36,6 +47,14 @@ pause_btn[0].addEventListener("click", () => {
 stop_btn[0].addEventListener("click", () => {
     stopVideo(simple_video)
 })
-sound_btn[0].addEventListener("click", () => {})
+sound_btn[0].addEventListener("click", function(){
+    if(switches.sound_swicth === 0){
+        soundOn(simple_video, this)
+        switches.sound_swicth = simple_video.volume
+    }else{
+        soundOff(simple_video, this)
+        switches.sound_swicth = simple_video.volume
+    }
+})
 settings_btn[0].addEventListener("click", () => {})
 expand_btn[0].addEventListener("click", () => {})
