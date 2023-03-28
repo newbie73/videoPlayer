@@ -9,9 +9,16 @@ const expand_btn = document.getElementsByClassName("expand")
 
 const simple_video = document.getElementById("simp-player")
 
-function playVideo(){}
-function pauseVideo(){}
-function stopVideo(){}
+function playVideo(video_elem){
+    video_elem.play()
+}
+function pauseVideo(video_elem){
+    video_elem.pause()
+}
+function stopVideo(video_elem){
+    video_elem.pause()
+    video_elem.currentTime = 0
+}
 function getVideoTime(){}
 function soundOn(){}
 function soundOff(){}
@@ -20,9 +27,15 @@ function expandOn(){}
 function expandOff(){}
 
 play_pause_btn[0].addEventListener("click", () => {})
-play_btn[0].addEventListener("click", () => {})
-pause_btn[0].addEventListener("click", () => {})
-stop_btn[0].addEventListener("click", () => {})
+play_btn[0].addEventListener("click", () => {
+    playVideo(simple_video)
+})
+pause_btn[0].addEventListener("click", () => {
+    pauseVideo(simple_video)
+})
+stop_btn[0].addEventListener("click", () => {
+    stopVideo(simple_video)
+})
 sound_btn[0].addEventListener("click", () => {})
 settings_btn[0].addEventListener("click", () => {})
 expand_btn[0].addEventListener("click", () => {})
