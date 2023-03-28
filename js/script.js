@@ -1,4 +1,4 @@
-const play_pause_btn = document.getElementById("play-pause")
+const play_pause_btn = document.getElementsByClassName("play-pause")
 const play_btn = document.getElementsByClassName("play")
 const pause_btn = document.getElementsByClassName("pause")
 const stop_btn = document.getElementsByClassName("stop")
@@ -18,3 +18,11 @@ function soundOff(){}
 function saveVideo(){}
 function expandOn(){}
 function expandOff(){}
+
+play_pause_btn[0].addEventListener("click", () => {})
+play_btn[0].addEventListener("click", () => {})
+pause_btn[0].addEventListener("click", () => {})
+stop_btn[0].addEventListener("click", () => {})
+sound_btn[0].addEventListener("click", () => {})
+settings_btn[0].addEventListener("click", () => {})
+expand_btn[0].addEventListener("click", () => {})
