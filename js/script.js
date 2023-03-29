@@ -8,10 +8,12 @@ const settings_btn = document.getElementsByClassName("settings")
 const expand_btn = document.getElementsByClassName("expand")
 
 const simple_video = document.getElementById("simp-video")
+const video_box = document.getElementsByClassName("video-box")
 
 const switches = {
     play_pause_switch: 1,
     sound_swicth: 0.5,
+    expand_switch: 1,
 }
 
 function playVideo(video_elem){
@@ -51,8 +53,27 @@ function opacityAnim(elem){
     },50)
 }
 function saveVideo(){}
-function expandOn(){}
-function expandOff(){}
+function expandOn(elem){
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    }else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+    }else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+    }
+}
+function expandOff(elem){
+    if (elem.exitFullscreen ) {
+        console.log(2)
+        elem.exitFullscreen();
+    } else if (elem.webkitExitFullscreen ) {
+        elem.webkitExitFullscreen();
+    } else if (elem.msExitFullscreen ) {
+        elem.msExitFullscreen();
+    }else if(document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    }
+}
 
 simple_video.addEventListener("click", () => {
     if(switches.play_pause_switch === 1){
@@ -80,4 +101,12 @@ sound_btn[0].addEventListener("click", function(){
     }
 })
 settings_btn[0].addEventListener("click", () => {})
-expand_btn[0].addEventListener("click", () => {})
+expand_btn[0].addEventListener("click", function(){
+    if(switches.expand_switch){
+        expandOn(video_box[0])
+        switches.expand_switch = 0
+    }else{
+        expandOff(video_box[0])
+        switches.expand_switch = 1
+    }
+})
