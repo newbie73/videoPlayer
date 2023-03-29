@@ -12,7 +12,7 @@ const video_box = document.getElementsByClassName("video-box")
 
 const switches = {
     play_pause_switch: 1,
-    sound_swicth: 0.5,
+    sound_swicth: 0,
     expand_switch: 1,
 }
 
@@ -76,7 +76,7 @@ function expandOff(elem){
 }
 
 simple_video.addEventListener("click", () => {
-    if(switches.play_pause_switch === 1){
+    if(switches.play_pause_switch){
         playVideo(simple_video)
     }else{
         pauseVideo(simple_video)
@@ -92,12 +92,12 @@ stop_btn[0].addEventListener("click", () => {
     stopVideo(simple_video)
 })
 sound_btn[0].addEventListener("click", function(){
-    if(switches.sound_swicth === 0){
+    if(switches.sound_swicth){
         soundOn(simple_video, this)
-        switches.sound_swicth = simple_video.volume
+        switches.sound_swicth = 0
     }else{
         soundOff(simple_video, this)
-        switches.sound_swicth = simple_video.volume
+        switches.sound_swicth = 1
     }
 })
 settings_btn[0].addEventListener("click", () => {})
